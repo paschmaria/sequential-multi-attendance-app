@@ -1,0 +1,777 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center booking-progress">
+                    <h5 class="mb-4">
+                        Make a booking
+                    </h5>
+                    <ul class="mb-0 d-none d-lg-block">
+                        <li class="list-inline-item d-blok d-lg-inline mx-4 active my-2" id="state_parent">State >></li>
+                        <li class="list-inline-item d-blck d-lg-inline mx-4 my-2" id="govt_parent">Local government >></li>
+                        <li class="list-inline-item d-bock d-lg-inline mx-4 my-2" id="clinic_parent">Choose clinic >></li>
+                        <li class="list-inline-item d-lock d-lg-inline mx-4 my-2" id="date_parent">Choose date >></li>
+                        <li class="list-inline-item dblock d-lg-inline mx-4 my-2" id="info_parent">Fill information >></li>
+                        <li class="list-inline-item -block d-lg-inline mx-4 my-2" id="prelim_parent">Preliminary test >></li>
+                        <li class="list-inline-item -block d-lg-inline mx-4 my-2" id="confirm_parent">Confirm booking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="h-100 p-3">
+                        <form action="" id="booking">
+
+                            <div id="sec1" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Please select your state<br /> of residence</h4>
+
+                                <div class="form-group my-5">
+                                    <label for="state" class="secondary-color font-13 font-weight-light">Select state</label>
+                                    <select class="custom-select" id="state" name="state" onchange="toggleLGA(this);">
+                                        <option selected disabled>- Select State - </option>
+                                        <option value="Abia">Abia</option>
+                                        <option value="Adamawa">Adamawa</option>
+                                        <option value="AkwaIbom">AkwaIbom</option>
+                                        <option value="Anambra">Anambra</option>
+                                        <option value="Bauchi">Bauchi</option>
+                                        <option value="Bayelsa">Bayelsa</option>
+                                        <option value="Benue">Benue</option>
+                                        <option value="Borno">Borno</option>
+                                        <option value="Cross River">Cross River</option>
+                                        <option value="Delta">Delta</option>
+                                        <option value="Ebonyi">Ebonyi</option>
+                                        <option value="Edo">Edo</option>
+                                        <option value="Ekiti">Ekiti</option>
+                                        <option value="Enugu">Enugu</option>
+                                        <option value="FCT">FCT</option>
+                                        <option value="Gombe">Gombe</option>
+                                        <option value="Imo">Imo</option>
+                                        <option value="Jigawa">Jigawa</option>
+                                        <option value="Kaduna">Kaduna</option>
+                                        <option value="Kano">Kano</option>
+                                        <option value="Katsina">Katsina</option>
+                                        <option value="Kebbi">Kebbi</option>
+                                        <option value="Kogi">Kogi</option>
+                                        <option value="Kwara">Kwara</option>
+                                        <option value="Lagos">Lagos</option>
+                                        <option value="Nasarawa">Nasarawa</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Ogun">Ogun</option>
+                                        <option value="Ondo">Ondo</option>
+                                        <option value="Osun">Osun</option>
+                                        <option value="Oyo">Oyo</option>
+                                        <option value="Plateau">Plateau</option>
+                                        <option value="Rivers">Rivers</option>
+                                        <option value="Sokoto">Sokoto</option>
+                                        <option value="Taraba">Taraba</option>
+                                        <option value="Yobe">Yobe</option>
+                                        <option value="Zamfara">Zamafara</option>
+                                    </select>
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="offset-lg-6 col-lg-6 text-right">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec2" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Please select your Local <br /> government area</h4>
+
+                                <div class="form-group my-5">
+                                    <label for="lga" class="secondary-color font-13 font-weight-light">Select local government</label>
+                                    <select class="custom-select select-lga" id="lga" name="lga">
+                                    </select>
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+
+                                    <div class="col-lg-6 col-6 text-right">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec3" class="booking-form-card p-3 mx-5">
+                                <h5 class="font-weight-light primary-color mb-5">Choose Clinic</h5>
+
+
+
+                                <div class="form-group my-2">
+                                    <label class="mb-0">
+                                        <input type="radio" name="clinic" value="" checked>
+                                        <div class="row mx-3 py-3">
+                                            <div class="col-lg-2">
+                                                <div style="background: #C4C4C4;width: 32px;
+                                                            height: 32px; border-radius: 50%">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-10">
+                                                <p class="mb-1 font-weight-normal">Name of Clinic</p>
+                                                <p class="font-12 secondary-color font-weight-light mb-2">9408 Elgin St Chandler, Arkansas 59299 United States</p>
+                                                <p class="small primary-color font-weight-light mb-0">Available</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <hr class="my-0" />
+
+                                <div class="form-group my-2">
+                                    <label class="mb-0">
+                                        <input type="radio" name="clinic" value="">
+                                        <div class="row mx-3 py-3">
+                                            <div class="col-lg-2">
+                                                <div style="background: #C4C4C4;width: 32px;
+                                                            height: 32px; border-radius: 50%">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-10">
+                                                <p class="mb-1 font-weight-normal">Name of Clinic</p>
+                                                <p class="font-12 secondary-color font-weight-light mb-2">9408 Elgin St Chandler, Arkansas 59299 United States</p>
+                                                <p class="small primary-color font-weight-light mb-0">Available</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <hr class="my-0" />
+
+                                <div class="form-group my-2">
+                                    <label class="mb-0">
+                                        <input type="radio" name="clinic" value="">
+                                        <div class="row mx-3 py-3">
+                                            <div class="col-lg-2">
+                                                <div style="background: #C4C4C4;width: 32px;
+                                                            height: 32px; border-radius: 50%">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-10">
+                                                <p class="mb-1 font-weight-normal">Name of Clinic</p>
+                                                <p class="font-12 secondary-color font-weight-light mb-2">9408 Elgin St Chandler, Arkansas 59299 United States</p>
+                                                <p class="small primary-color font-weight-light mb-0">Available</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+                                    <div class="col-lg-6 col-6 text-right">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec4" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Choose date & time</h4>
+
+                                <div class="form-group my-5">
+                                    <input type="text" class="form-control" id="date" name="date" />
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+                                    <div class="col-lg-6 col-6 text-right">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec5" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Fill in your information</h4>
+
+                                <div class="form-group">
+                                    <label class="secondary-color font-13 font-weight-light" for="full_name">Full name</label>
+                                    <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Bessie Warren">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="secondary-color font-13 font-weight-light" for="phone">Phone number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(702) 555-0122">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="secondary-color font-13 font-weight-light" for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="isaac.gibson@example.com">
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+                                    <div class="col-lg-6 text-right col-6">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec6" class="booking-form-card p-3">
+                                <h4 class="font-weight-light primary-color">Preliminary Test</h4>
+                                <p class="secondary-color font-14 font-weight-light mb-4">Do you exhibit the following symptom</p>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Are you feeling feverish</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="feverish_symptoms" name="feverish_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="feverish_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="feverish_symptoms_mild" name="feverish_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="feverish_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="feverish_symptoms_no" name="feverish_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="feverish_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Do you feel tired</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="tired_symptoms" name="tired_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="tired_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="tired_symptoms_mild" name="tired_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="tired_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="tired_symptoms_no" name="tired_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="tired_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Are you finding it hard to breathe</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="breathing_symptoms" name="breathing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="breathing_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="breathing_symptoms_mild" name="breathing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="breathing_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="breathing_symptoms_no" name="breathing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="breathing_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Are  you coughing?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="coughing_symptoms" name="coughing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="coughing_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="coughing_symptoms_mild" name="coughing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="coughing_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="coughing_symptoms_no" name="coughing_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="coughing_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Do you feel aches and pains?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="aches_symptoms" name="aches_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="aches_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="aches_symptoms_mild" name="aches_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="aches_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="aches_symptoms_no" name="aches_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="aches_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Are you experiencing nasal congestions?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="nasal_symptoms" name="nasal_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="nasal_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="nasal_symptoms_mild" name="nasal_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="nasal_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="nasal_symptoms_no" name="nasal_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="nasal_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Do you have a sour throat?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="sour_throat_symptoms" name="sour_throat_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="sour_throat_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="sour_throat_symptoms_mild" name="sour_throat_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="sour_throat_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="sour_throat_symptoms_no" name="sour_throat_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="sour_throat_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Have you lost the appetite to eat?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="appetite_loss_symptoms" name="appetite_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="appetite_loss_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="appetite_loss_symptoms_mild" name="appetite_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="appetite_loss_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="appetite_loss_symptoms_no" name="appetite_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="appetite_loss_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row my-3">
+                                    <div class="col-lg-6">
+                                        <p class="font-13 font-weight-light mb-0 pt-1">Are you sensing a sens of smell?</p>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="smell_loss_symptoms" name="smell_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="smell_loss_symptoms">Severe</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="smell_loss_symptoms_mild" name="smell_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="smell_loss_symptoms_mild">Mild</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="smell_loss_symptoms_no" name="smell_loss_symptoms" class="custom-control-input">
+                                            <label class="custom-control-label secondary-color font-weight-light" for="smell_loss_symptoms_no">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+                                    <div class="col-lg-6 text-right col-6">
+                                        <button type="button" class="btn btn-next py-2 next">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sec7" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Confirm booking <br /> information</h4>
+
+
+                                <div class="">
+                                    <p class="mb-1 font-weight-normal">Arlene Robertson</p>
+                                    <p class="font-14 secondary-color font-weight-light mb-2">ramona.lowe@example.com</p>
+                                    <p class="font-14 secondary-color font-weight-light">(225) 555-0118</p>
+                                </div>
+
+
+                                <div class="my-4">
+                                    <p class="mb-1 font-weight-light font-14 secondary-color">LifeLead Hospital, Orile-Agege, Lagos</p>
+                                    <p class="font-14 secondary-color font-weight-light mb-2">Orile-Agege, Lagos</p>
+                                    <h6 class="font-weight-normal">Jan 26, 2020  -  07:45 pm</h6>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="terms" name="terms">
+                                    <label class="custom-control-label font-14 font-weight-light" for="terms">I understand that this information is genuine and I am agreeing to the terms and conditions of this site</label>
+                                </div>
+
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-6 col-6">
+                                        <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+                                    </div>
+
+                                    <div class="col-lg-6 text-right col-6">
+                                        <button type="button" class="btn btn-next py-2 next">Confirm booking</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="sec8" class="booking-form-card p-3 mx-4">
+                                <h4 class="font-weight-light primary-color mb-5">Booking Confirmed</h4>
+
+
+                                <div class="">
+                                    <p class="mb-1 font-weight-normal">Arlene Robertson</p>
+                                    <p class="font-14 secondary-color font-weight-light mb-2">ramona.lowe@example.com</p>
+                                    <p class="font-14 secondary-color font-weight-light">(225) 555-0118</p>
+                                </div>
+
+
+                                <div class="my-4">
+                                    <p class="mb-1 font-weight-light font-14 secondary-color">LifeLead Hospital, Orile-Agege, Lagos</p>
+                                    <p class="font-14 secondary-color font-weight-light mb-2">Orile-Agege, Lagos</p>
+                                    <h6 class="font-weight-normal">Jan 26, 2020  -  07:45 pm</h6>
+                                </div>
+
+
+                                <div class="success_msg p-2">
+                                    <p class="secondary-color font-weight-normal font-14 text-center mb-0">You are 3rd in queue, Please be in location at least 5 mins before time. Have a splendid shopping experience</p>
+                                </div>
+
+                                <div class="row mt-5 mb-4">
+                                    <div class="col-lg-12 text-center">
+                                        <a href="index.html" class="btn btn-next py-2 next">Return home</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="font-weight-bold primary-color">Endorsed by</p>
+                    <div class="d-flex justify-content-center">
+                        <div class="col-2">
+                            <img src="img/ncdc.jpg" alt="NCDC" class="img-fluid" />
+                        </div>
+                        <div class="col-2">
+                            <img src="img/lasg.jpg" alt="LASG" class="img-fluid" />
+                        </div>
+                        <div class="col-2">
+                            <img src="img/fg.jpg" alt="FG" class="img-fluid" />
+                        </div>
+                        <div class="col-2">
+                            <img src="img/lsc.jpg" alt="lsc" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="font-weight-light primary-color font-14">You can also place a booking via our social media handles</p>
+                    <ul class="list-inline mt-3">
+                        <li class="list-inline-item mx-3">
+                            <a href="#" target="_blank" title="Instagram Profile" alt="Instagram Profile"><img src="img/instagram.png" /></a>
+                        </li>
+
+                        <li class="list-inline-item mx-3">
+                            <a href="#"><img src="img/facebook.png" alt="Facebook" title="Facebook" class="img-fluid" /></a>
+                        </li>
+
+                        <li class="list-inline-item mx-3">
+                            <a href="#" target="_blank" alt="Messenger" title="Messenger"><img src="img/message-circle.png" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="bottom-footer mt-0">
+                <div class="clearfix">
+                    <ul class="float-md-right pl-0">
+                        <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 my-2"><a class="primary-color" href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 my-2"><a class="primary-color" href="privacy-policy.html">Privacy policy</a></li>
+                        <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 primary-color my-2">Copyright 2020 DrugStore.NG</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.bottom-footer -->
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <script src="js/lga.js"></script>
+    <script src="js/utility.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $(".next").click(function(){
+
+                var form = $("#booking");
+                form.validate({
+                    errorPlacement: function(error, element) {
+                        // Append error within linked label
+                        $( element )
+                            .closest( "form" )
+                            .find( "label[for='" + element.attr( "id" ) + "']" )
+                            .append( error );
+                    },
+                    errorElement: "span",
+
+                    rules: {
+                        state:{
+                            required: true
+                        },lga:{
+                            required: true
+                        },
+                        clinic: {
+                            required: true,
+                        },date:{
+                            required: true,
+                            date: true
+                        },full_name:{
+                            required: true
+                        },
+                        email: {
+                            email: true
+                        },phone:{
+                            required: true,
+                            digits: true
+                        },
+                        feverish_symptoms: {
+                            required: true
+                        },tired_symptoms :{
+                            required: true
+                        },breathing_symptoms :{
+                            required: true
+                        },
+                        coughing_symptoms: {
+                            required: true
+                        },aches_symptoms :{
+                            required: true
+                        },nasal_symptoms :{
+                            required: true
+                        },
+                        sour_throat_symptoms: {
+                            required: true
+                        },appetite_loss_symptoms :{
+                            required: true
+                        },smell_loss_symptoms :{
+                            required: true
+                        },
+                        terms :{
+                            required: true
+                        }
+                    },
+                    messages: {
+                        state: {
+                            required: "(Required)",
+                        },lga: {
+                            required: "(Required)",
+                        },
+                        clinic: {
+                            required: "(Required)",
+                        },date:{
+                            required: "(Required)"
+                        },full_name:{
+                            required: "(Required)"
+                        },phone:{
+                            required: "(Required)"
+                        },
+                        feverish_symptoms: {
+                            required: "(Required)"
+                        },tired_symptoms :{
+                            required: "(Required)"
+                        },
+                        breathing_symptoms: {
+                            required: "(Required)"
+                        },coughing_symptoms :{
+                            required: "(Required)"
+                        },
+                        aches_symptoms: {
+                            required: "(Required)"
+                        },nasal_symptoms :{
+                            required: "(Required)"
+                        },
+                        sour_throat_symptoms: {
+                            required: "(Required)"
+                        },appetite_loss_symptoms :{
+                            required: "(Required)"
+                        },smell_loss_symptoms :{
+                            required: "(Required)"
+                        },terms :{
+                            required: "(Required)"
+                        }
+                    }
+                });
+                if (form.valid() === true){
+                    if ($('#sec1').is(":visible")){
+                        current_fs = $('#sec1');
+                        next_fs = $('#sec2');
+                        parent = $("#govt_parent");
+
+                    }else if($('#sec2').is(":visible")){
+                        current_fs = $('#sec2');
+                        next_fs = $('#sec3');
+                        parent = $("#clinic_parent");
+
+                    }else if($('#sec3').is(":visible")){
+                        current_fs = $('#sec3');
+                        next_fs = $('#sec4');
+                        parent = $("#date_parent");
+
+                    }else if($('#sec4').is(":visible")){
+                        current_fs = $('#sec4');
+                        next_fs = $('#sec5');
+                        parent = $("#info_parent");
+
+                    }else if($('#sec5').is(":visible")){
+                        current_fs = $('#sec5');
+                        next_fs = $('#sec6');
+                        parent = $("#prelim_parent");
+
+                    }
+                    else if($('#sec6').is(":visible")){
+                        current_fs = $('#sec6');
+                        next_fs = $('#sec7');
+                        parent = $("#confirm_parent");
+
+                    }else if($('#sec7').is(":visible")){
+                        current_fs = $('#sec7');
+                        next_fs = $('#sec8');
+                        parent = $("#confirm_parent").addClass('confirmed');
+                    }
+
+                    next_fs.show();
+                    parent.addClass('active');
+                    current_fs.hide();
+                }
+            });
+
+            $('.previous').click(function(){
+                if ($('#sec2').is(":visible")){
+                    current_fs = $('#sec2');
+                    next_fs = $('#sec1');
+                    parent = $("#govt_parent");
+
+                }else if ($('#sec3').is(":visible")){
+                    current_fs = $('#sec3');
+                    next_fs = $('#sec2');
+                    parent = $("#clinic_parent");
+
+                }else if($('#sec4').is(":visible")){
+                    current_fs = $('#sec4');
+                    next_fs = $('#sec3');
+                    parent = $("#date_parent");
+
+                }else if($('#sec5').is(":visible")){
+                    current_fs = $('#sec5');
+                    next_fs = $('#sec4');
+                    parent = $("#info_parent");
+
+                }else if($('#sec6').is(":visible")){
+                    current_fs = $('#sec6');
+                    next_fs = $('#sec5');
+                    parent = $("#prelim_parent");
+
+                }else if($('#sec7').is(":visible")){
+                    current_fs = $('#sec7');
+                    next_fs = $('#sec6');
+                    parent = $("#confirm_parent");
+                }
+
+                next_fs.show();
+                current_fs.hide();
+
+                parent.removeClass('active');
+
+            });
+
+        });
+    </script>
+{% endblock body %}

@@ -1,0 +1,58 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head lang="en-US">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="SafeTest" />
+        <meta name="description" content="SafeTest" />
+        <meta name="msapplication-TileImage" content="#" />
+        <title>SafeTest</title>
+
+        {% block seo_tags %}
+        {% endblock seo_tags %}
+
+        <link rel="canonical" href="#" />
+        <link rel='dns-prefetch' href='//s.w.org' />
+        <!--favicicon-->
+        <link rel="icon" href="{% static 'assets/img/favicon.png' %}" sizes="192x192" />
+        <link rel="apple-touch-icon-precomposed" href="{% static 'assets/img/favicon.png' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/slick-theme.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/slick.min.css' %}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+        {% block custom_sheets %}
+        {% endblock custom_sheets %}
+        
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+
+        <script>
+            WebFontConfig = {
+                google: {
+                    families: [
+                        "Roboto:300,400,500,700&font-display=swap"
+                    ]
+                }
+            };
+            (function (d) {
+                var wf = d.createElement("script"),
+                     s = d.scripts[0];
+                wf.src = "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js";
+                wf.async = true;
+                s.parentNode.insertBefore(wf, s);
+            })(document);
+        </script>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock body %}
+
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+        {% block custom_scripts %}
+        {% endblock custom_scripts %}
+    </body>
+</html>

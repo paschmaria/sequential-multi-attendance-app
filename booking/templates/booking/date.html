@@ -1,0 +1,31 @@
+{% extends "booking/base_main.html" %}
+{% load static %}
+
+{% block custom_sheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+{% endblock custom_sheets %}
+
+{% block form %}
+    <h4 class="font-weight-light primary-color mb-5">Choose date &amp; time</h4>
+
+    <div class="form-group my-5">
+        <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" data-toggle="datetimepicker" data-target="#datetimepicker5"/>
+    </div>
+
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-6 col-6">
+            <a href="#" class="btn btn-previous py-2 previous">Previous</a>
+        </div>
+        <div class="col-lg-6 col-6 text-right">
+            <button type="button" class="btn btn-next py-2 next">Next</button>
+        </div>
+    </div>
+{% endblock form %}
+
+{% block custom_script %}
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker5').datetimepicker();
+        });
+    </script>
+{% endblock custom_script %}

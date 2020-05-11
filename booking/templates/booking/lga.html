@@ -1,0 +1,21 @@
+{% extends "booking/base_main.html" %}
+{% load static %}
+
+{% block form %}
+    <h4 class="font-weight-light primary-color mb-5">Please select your Local Government Area</h4>
+
+    <div class="form-group my-5">
+        <label for="lga" class="secondary-color font-13 font-weight-light">Select local government</label>
+        <select class="custom-select select-lga" id="lga" name="lga">
+        </select>
+    </div>
+
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-6 col-6">
+            <a href="#" class="btn btn-previous py-2 previous">Previous</a>
+        </div>
+        <div class="col-lg-6 col-6 text-right">
+            <button type="button" class="btn btn-next py-2 next">Next</button>
+        </div>
+    </div>
+{% endblock form %}

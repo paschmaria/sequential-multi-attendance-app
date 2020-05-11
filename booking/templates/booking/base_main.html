@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center booking-progress">
+                    <h5 class="mb-0">Make a Booking</h5>
+                    <ul class="mt-4 mb-0 d-none d-lg-block">
+                        <li class="list-inline-item d-block d-lg-inline mx-4 active my-2" id="state_parent">State >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="govt_parent">Local Government >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="clinic_parent">Choose Clinic >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="date_parent">Choose date >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="info_parent">Fill information >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="prelim_parent">Preliminary test >></li>
+                        <li class="list-inline-item d-block d-lg-inline mx-4 my-2" id="confirm_parent">Confirm booking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" style="height: calc(100% - 200px);">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="h-100 p-3">
+                    <form class="booking-form-card p-3 mx-4" method="POST">
+
+                        {% block form %}
+                        {% endblock form %}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center my-4">
+            <div class="col-lg-10 text-center">
+                <p class="font-weight-bold primary-color">Endorsed by</p>
+                <div class="d-flex justify-content-center">
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/ncdc.jpg' %}" alt="[NCDC]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/lasg.jpg' %}" alt="[LASG]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/fg.jpg' %}" alt="[FGN]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/lsc.jpg' %}" alt="[LSC]" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10 text-center">
+                <p class="font-weight-light primary-color font-14">You can also place a booking via our social media handles</p>
+                <ul class="list-inline mt-3">
+                    <li class="list-inline-item mx-3">
+                        <a href="#" target="_blank" title="Instagram">
+                            <img src="{% static 'assets/img/instagram.png' %}" alt="[Instagram]" class="img-fluid" />
+                        </a>
+                    </li>
+                    <li class="list-inline-item mx-3">
+                        <a href="#" target="_blank" title="Facebook">
+                            <img src="{% static 'assets/img/facebook.png' %}" alt="[Facebook]" class="img-fluid" /></a>
+                    </li>
+                    <li class="list-inline-item mx-3">
+                        <a href="#" target="_blank" title="WhatsApp"><img src="{% static 'assets/img/message-circle.png' %}" alt="[WhatsApp]" class="img-fluid" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid">
+        <div class="bottom-footer mt-0">
+            <div class="clearfix">
+                <ul class="float-md-right pl-0">
+                    <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 my-2">
+                        <a class="primary-color" href="#">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 my-2">
+                        <a class="primary-color" href="#">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 primary-color my-2">
+                        Copyright 2020 DrugStore.NG
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+{% endblock body %}
+
+{% block custom_scripts %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+{% endblock custom_scripts %}

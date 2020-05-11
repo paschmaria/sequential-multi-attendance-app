@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block seo_tags %}
+    <meta property="og:locale" content="en_NG" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SafeTest" />
+    <meta property="og:description" content="SafeTest" />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="SafeTest" />
+    <meta property="og:image" content="#" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="SafeTest" />
+    <meta name="twitter:title" content="SafeTest" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image" content="#" />
+    <script type='application/ld+json'>
+        {
+            "@context":"https://schema.org"
+            "@type":"WebSite"
+            "@id":"http://www.safetest.ng/#website",
+            "url":"http://www.safetest.ng/","name":"SafeTest",
+            "potentialAction":{
+                "@type":"SearchAction",
+                "target":"http://www.safetest.ng/?s={search_term_string}",
+                "query-input":"required name=search_term_string"
+            }
+        }
+    </script>
+{% endblock seo_tags %}
+
+{% block body %}
+    <div class="container-fluid">
+        <nav class="navbar active_nav navbar-expand-lg navbar-light pt-lg-4">
+            <a class="navbar-brand" href="{% url 'booking:home' %}">
+                <img src="{% static 'assets/img/logo.png' %}" alt="[SafeTest]">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-md-4 my-md-0 postion-relative">
+                        <a class="nav-link rounded-200 complimentary-btn px-lg-5 font-weight-light" href="{% url 'booking:select_state' %}">Make a booking</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-md-4 my-md-0 postion-relative">
+                        <a class="nav-link rounded-200 primary-btn px-lg-5 font-weight-light" href="#">Announcements</a>
+                    </li>
+
+                    <li class="nav-item mx-md-4 my-md-0 postion-relative">
+                        <a class="nav-link rounded-200 primary-btn px-lg-5 font-weight-light" href="#">Non-Convid Emmergencies</a>
+                    </li>
+
+                    <li class="nav-item mx-md-4 my-md-0 postion-relative">
+                        <a class="nav-link rounded-200 primary-btn px-lg-5 font-weight-light" href="#">DrugStore.Ng</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid mb-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <img src="{% static 'assets/img/banner_image.png' %}" class="img-fluid" alt="Book your test today" />
+                <h3 class="primary-color">Keep calm and get quick help. We are in this together.</h3>
+                <p class="font-weight-light">
+                    Book a space for your test today, and get tested without having to quence for too long.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <p class="font-weight-bold primary-color">Endorsed by</p>
+                <div class="d-flex justify-content-center">
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/ncdc.jpg' %}" alt="[NCDC]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/lasg.jpg' %}" alt="[LASG]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/fg.jpg' %}" alt="[FG]" class="img-fluid" />
+                    </div>
+                    <div class="col-2">
+                        <img src="{% static 'assets/img/lsc.jpg' %}" alt="[LSC]" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <p class="font-weight-light primary-color">Sponsored by</p>
+
+                <div class="row py-5 sponsors slider">
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/STERIOSTECH_JPEG.png' %}" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/exolve.png' %}" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/cwh.png' %}" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/nest.png' %}" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/tutorng.png' %}" />
+                    </div>
+                    <div class="col-lg-4">
+                        <img loading="lazy" class="img-fluid" alt="" src="{% static 'assets/img/drugstore.png' %}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <h4 class="primary-color circle_before">
+                    Who we are
+                </h4>
+                <p class="font-weight-light font-14 secondary-color">
+                    SafeTest is a platform set up by members of the Lagos Tech community, with support of our international partner, SimplyBook.me, to help governments in Africa flatten the curve.
+                </p>
+            </div>
+
+            <div class="col-lg-4 offset-lg-2">
+                <h4 class="primary-color circle_before">
+                    What we are doing
+                </h4>
+                <p class="font-weight-light font-14 secondary-color">
+                    We  are trying to manage your waiting time before your test. At the same time, we are protecting our health workes by managing the crowd who come in per day, and ensuring SD is mainained at test facilties.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a href="booking.html">
+                    <div class="footer--cta">
+                        <h5 class="mb-0">
+                            Make a booking
+                        </h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block custom_scripts %}
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
+    <script src="{% static 'assets/js/utility.js' %}"></script>
+{% endblock custom_scripts %}
