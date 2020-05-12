@@ -16,6 +16,10 @@ class SelectLGAView(TemplateView):
 class SelectClinicView(TemplateView):
     template_name = 'booking/clinic.html'
 
+    def get(self, request, *args, **kwargs):
+        print(request)
+        return super().get(request, *args, **kwargs)
+
 
 class SelectDateTimeView(TemplateView):
     template_name = 'booking/date.html'

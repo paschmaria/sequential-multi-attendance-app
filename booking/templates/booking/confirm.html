@@ -2,4 +2,32 @@
 {% load static %}
 
 {% block form %}
+    <h4 class="font-weight-light primary-color mb-5">Confirm your booking information.</h4>
+
+    <div class="">
+        <p class="mb-1 font-weight-normal">Arlene Robertson</p>
+        <p class="font-14 secondary-color font-weight-light mb-2">ramona.lowe@example.com</p>
+        <p class="font-14 secondary-color font-weight-light">(225) 555-0118</p>
+    </div>
+
+    <div class="my-4">
+        <p class="mb-1 font-weight-light font-14 secondary-color">LifeLead Hospital, Orile-Agege, Lagos</p>
+        <p class="font-14 secondary-color font-weight-light mb-2">Orile-Agege, Lagos</p>
+        <h6 class="font-weight-normal">Jan 26, 2020  -  07:45 pm</h6>
+    </div>
+
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="tandc" name="tandc">
+        <label class="custom-control-label font-14 font-weight-light" for="tandc">I understand that this information is genuine and I agree to the terms and conditions of this site</label>
+    </div>
+
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-6 col-6">
+            <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+        </div>
+
+        <div class="col-lg-6 text-right col-6">
+            <button type="button" class="btn btn-next py-2 next">Confirm booking</button>
+        </div>
+    </div>
 {% endblock form %}

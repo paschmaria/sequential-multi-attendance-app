@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'bot.apps.BotConfig',
     'booking.apps.BookingConfig',
     'dashboard.apps.DashboardConfig',
+
+    # installed apps
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

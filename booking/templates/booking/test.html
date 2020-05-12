@@ -2,4 +2,232 @@
 {% load static %}
 
 {% block form %}
+    <h4 class="font-weight-light primary-color">Preliminary Test</h4>
+    <p class="secondary-color font-14 font-weight-light mb-4">Kindly select which of the following symptom apply to you:</p>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have cough?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="cough_yes" name="cough">
+                <label class="custom-control-label secondary-color font-weight-light" for="cough_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="cough_no" name="cough">
+                <label class="custom-control-label secondary-color font-weight-light" for="cough_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have cold?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="cold_yes" name="cold">
+                <label class="custom-control-label secondary-color font-weight-light" for="cold_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="cold_no" name="cold">
+                <label class="custom-control-label secondary-color font-weight-light" for="cold_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have Diarrhea?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="diarrhea_yes" name="diarrhea">
+                <label class="custom-control-label secondary-color font-weight-light" for="diarrhea_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="diarrhea_no" name="diarrhea">
+                <label class="custom-control-label secondary-color font-weight-light" for="diarrhea_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have sore throat?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="sore_throat_yes" name="sore_throat">
+                <label class="custom-control-label secondary-color font-weight-light" for="sore_throat_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="sore_throat_no" name="sore_throat">
+                <label class="custom-control-label secondary-color font-weight-light" for="sore_throat_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Are you experiencing body aches?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="body_aches_yes" name="body_aches">
+                <label class="custom-control-label secondary-color font-weight-light" for="body_aches_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="body_aches_no" name="body_aches">
+                <label class="custom-control-label secondary-color font-weight-light" for="body_aches_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have headache?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="headache_yes" name="headache">
+                <label class="custom-control-label secondary-color font-weight-light" for="headache_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="headache_no" name="headache">
+                <label class="custom-control-label secondary-color font-weight-light" for="headache_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have fever? (Body temperature of 37.8<sup>o</sup>C and above)</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="fever_yes" name="fever">
+                <label class="custom-control-label secondary-color font-weight-light" for="fever_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="fever_no" name="fever">
+                <label class="custom-control-label secondary-color font-weight-light" for="fever_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Are you having difficulty in breathing?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="difficult_breath_yes" name="difficult_breath">
+                <label class="custom-control-label secondary-color font-weight-light" for="difficult_breath_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="difficult_breath_no" name="difficult_breath">
+                <label class="custom-control-label secondary-color font-weight-light" for="difficult_breath_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Are you experiencing fatigue?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="fatigue_yes" name="fatigue">
+                <label class="custom-control-label secondary-color font-weight-light" for="fatigue_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="fatigue_no" name="fatigue">
+                <label class="custom-control-label secondary-color font-weight-light" for="fatigue_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Have you traveled recently in the past 14 days?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="traveled_yes" name="traveled">
+                <label class="custom-control-label secondary-color font-weight-light" for="traveled_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="traveled_no" name="traveled">
+                <label class="custom-control-label secondary-color font-weight-light" for="traveled_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Do you have a travel history to a COVID-19 INFECTED AREA?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="infected_trip_yes" name="infected_trip">
+                <label class="custom-control-label secondary-color font-weight-light" for="infected_trip_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="infected_trip_no" name="infected_trip">
+                <label class="custom-control-label secondary-color font-weight-light" for="infected_trip_no">No</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row my-3">
+        <div class="col-lg-8">
+            <p class="font-13 font-weight-light mb-0 pt-1">Have you had a direct contact with a COVID-19 PATIENT?</p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="direct_contact_yes" name="direct_contact">
+                <label class="custom-control-label secondary-color font-weight-light" for="direct_contact_yes">Yes</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="direct_contact_no" name="direct_contact">
+                <label class="custom-control-label secondary-color font-weight-light" for="direct_contact_no">No</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-6 col-6">
+            <button type="button" class="btn btn-previous py-2 previous">Previous</button>
+        </div>
+        <div class="col-lg-6 text-right col-6">
+            <button type="button" class="btn btn-next py-2 next">Next</button>
+        </div>
+    </div>
 {% endblock form %}
