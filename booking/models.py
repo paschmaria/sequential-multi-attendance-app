@@ -2,52 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 
-
-class Location(models.Model):
-    """
-    Base class for capturing location
-    """
-
-    state = models.CharField(max_length=50)
-    lga = models.CharField(max_length=50)
-
-    class Meta:
-        abstract = True
-
-
-class Schedule(models.Model):
-    """
-    Keeps track of availability schedules for all service providers
-    """
-
-    is_available = models.BooleanField(default=False)
-    day = models.CharField(max_length=50)
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-
-    def __str__(self):
-        return self.is_available
-
-
-class ServiceProvider(Location):
-    """
-    Model for all type of service providers
-
-    - Test Centers (Hospital)
-    - Super Markets
-    """
-
-    name = models.CharField(max_length=254)
-    desc = models.TextField(_("description"))
-    phone = PhoneNumberField()
-    email = models.EmailField(max_length=50)
-    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ('name', 'state', 'lga')
-
-    def __str__(self):
-        return self.name
+from common.models import Location
+from dashboard.models import ServiceProvider
 
 
 class HealthStatus(models.Model):
@@ -95,12 +51,25 @@ class Booker(models.Model):
         return self.name
 
 
+class Schedule(models.Model):
+    """
+    Keeps track of availability schedules for all service providers
+    """
+
+    is_available = models.BooleanField(default=False)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    def __str__(self):
+        return self.is_available
+
+
 class Booking(Location):
     """
     Model for saving booking to the database
     """
 
-    date = models.DateTimeField()
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
     service_provider = models.ForeignKey(
                     ServiceProvider,
                     on_delete=models.CASCADE
@@ -114,7 +83,7 @@ class Booking(Location):
     confirmed = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('date',)
+        ordering = ('schedule',)
 
     def __str__(self):
-        return f"{self.service_provider} {self.date}"
+        return f"{self.service_provider} {self.schedule.start_time}"

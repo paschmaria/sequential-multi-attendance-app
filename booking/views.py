@@ -17,7 +17,6 @@ class SelectClinicView(TemplateView):
     template_name = 'booking/clinic.html'
 
     def get(self, request, *args, **kwargs):
-        print(request)
         return super().get(request, *args, **kwargs)
 
 
