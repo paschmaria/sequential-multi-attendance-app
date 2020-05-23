@@ -10,7 +10,7 @@ class DashboardView(TemplateView):
     template_name = 'dashboard/index.html'
 
 
-class ServiceProviderView(JSONResponseMixin, AjaxResponseMixin, CreateView):
+class ServiceProviderView(AjaxResponseMixin, JSONResponseMixin, CreateView):
     form_class = ServiceProviderForm
     model = ServiceProvider
 

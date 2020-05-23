@@ -273,3 +273,12 @@ span.error {
 .bootstrap-datetimepicker-widget.dropdown-menu {
   width: 26.5rem;
 }
+
+.errorlist {
+  color: #cd201f;
+  font-size: 0.9rem;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+  padding: 0;
+}

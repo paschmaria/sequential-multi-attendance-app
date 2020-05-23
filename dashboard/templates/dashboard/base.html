@@ -90,7 +90,7 @@
     <script src="{% static 'assets/js/lga_data.js' %}"></script>
     <script src="{% static 'assets/js/dashboard.js' %}"></script>
     <script>
-		let formModal = $('#addServiceProvider')
+		let formModal = $('form.modal-content')
 		
 		function csrfSafeMethod (method) {
 			// these HTTP methods do not require CSRF protection
@@ -131,20 +131,13 @@
 					.prop({
 						'disabled': true
 					}).text('Submitting...');
-			
-			console.log(this[1])
-			console.log(this[1])
-			console.log(this[1])
-			console.log(this[1])
-			console.log(this[1])
-			console.log(this[1])
 
-			// formData.append(this[1].name, this[1].value);
-			// formData.append(this[2].name, this[2].value);
-			// formData.append(this[3].name, this[3].value);
-			// formData.append(this[4].name, this[4].value);
-			// formData.append(this[5].name, this[5].value);
-			// formData.append(this[6].name, this[6].value);
+			formData.append(this[2].name, this[2].value);
+			formData.append(this[3].name, this[3].value);
+			formData.append(this[4].name, this[4].value);
+			formData.append(this[5].name, this[5].value);
+			formData.append(this[6].name, this[6].value);
+			formData.append(this[7].name, this[7].value);
 
 			processForm(formData, this.action)
 				.done(res => {
@@ -168,6 +161,48 @@
 				})
 				.fail(res => {
 					res = res.responseJSON;
+
+                    if (res.name) {
+                        $(this).find(".errorlist.name").html(`
+                            <li class="errorlist">${res.name[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.name"));
+                    }
+
+                    if (res.desc) {
+                        $(this).find(".errorlist.desc").html(`
+                            <li class="errorlist">${res.desc[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.desc"));
+                    }
+
+                    if (res.email) {
+                        $(this).find(".errorlist.email").html(`
+                            <li class="errorlist">${res.email[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.email"));
+                    }
+
+                    if (res.phone) {
+                        $(this).find(".errorlist.phone").html(`
+                            <li class="errorlist">${res.phone[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.phone"));
+                    }
+
+                    if (res.state) {
+                        $(this).find(".errorlist.state").html(`
+                            <li class="errorlist">${res.state[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.state"));
+                    }
+
+                    if (res.lga) {
+                        $(this).find(".errorlist.lga").html(`
+                            <li class="errorlist">${res.lga[0]}</li>
+                        `)
+                        setTimeout(changeValue, 10000, $(this).find(".errorlist.lga"));
+                    }
 					
 					if (res.__all__) {
 						res.__all__.map(x => {

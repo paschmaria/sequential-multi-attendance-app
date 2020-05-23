@@ -26,6 +26,7 @@
             <div class="col-lg-6">
                 <div class="h-100 p-3">
                     <form class="booking-form-card p-3 mx-4" method="POST">
+                        {% csrf_token %}
 
                         {% block form %}
                         {% endblock form %}
@@ -87,7 +88,7 @@
                         <a class="primary-color" href="#">Privacy Policy</a>
                     </li>
                     <li class="list-inline-item d-block d-lg-inline font-weight-light font-14 primary-color my-2">
-                        Copyright 2020 DrugStore.NG
+                        Copyright &copy; 2020 DrugStore.NG All rights reserved.
                     </li>
                 </ul>
             </div>

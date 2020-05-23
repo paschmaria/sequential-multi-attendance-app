@@ -7,16 +7,17 @@ class AjaxResponseMixin:
     Must be used with an object-based FormView (e.g. CreateView)
     """
     def form_invalid(self, form):
-        return JsonResponse(form.errors, status=400)
+        return self.render_to_response(form.errors, status=400)
 
     def form_valid(self, form):
-        # We make sure to call the parent's form_valid() method
-        # because it might do some processing.
-        super().form_valid(form)
+        """
+        If the form is valid, save the associated model.
+        """
+        self.object = form.save()
         data = {
-            'pk': self.object.pk,
+            'message': f'{self.object._meta.verbose_name.title()} has been added.',
         }
-        return JsonResponse(data)
+        return self.render_to_response(data)
 
 
 class JSONResponseMixin:
@@ -34,6 +35,6 @@ class JSONResponseMixin:
 
     def get_data(self, context):
         """
-        Returns an object that will be serialized as JSON by json.dumps().
+        Used for adding possible extra data to context.
         """
         return context

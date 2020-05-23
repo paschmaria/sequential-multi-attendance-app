@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
@@ -69,10 +71,18 @@ class Booking(Location):
     Model for saving booking to the database
     """
 
-    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+    uuid = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    schedule = models.ForeignKey(
+                    Schedule,
+                    on_delete=models.CASCADE,
+                    blank=True,
+                    null=True
+                )
     service_provider = models.ForeignKey(
                     ServiceProvider,
-                    on_delete=models.CASCADE
+                    on_delete=models.CASCADE,
+                    blank=True,
+                    null=True
                 )
     booker = models.ForeignKey(
                     Booker,

@@ -9,12 +9,19 @@
             <h4 class="modal-title">Add Service Provider</h4>
         </div>
         <div class="modal-body">
-            <input type="text" placeholder="Service Provider name" class="form-control" name="name" >
+            <ul class="errorlist non_field_errors" style="list-style:none;padding-left:0;"></ul>
+            <input type="text" placeholder="Service Provider name" class="form-control" name="name" />
+            <ul class="errorlist name" style="list-style:none;padding-left:0;"></ul>
             <textarea placeholder="Description" class="form-control" name="desc" ></textarea>
-            <input type="text" placeholder="Email" class="form-control" name="email" >
-            <input type="text" placeholder="Phone Number" class="form-control" name="phone" >
+            <ul class="errorlist desc" style="list-style:none;padding-left:0;"></ul>
+            <input type="text" placeholder="Email" class="form-control" name="email" />
+            <ul class="errorlist email" style="list-style:none;padding-left:0;"></ul>
+            <input type="text" placeholder="Phone Number" class="form-control" name="phone" />
+            <ul class="errorlist phone" style="list-style:none;padding-left:0;"></ul>
             <select class="form-control" name="state" id="state" ></select>
+            <ul class="errorlist state" style="list-style:none;padding-left:0;"></ul>
             <select class="form-control" name="lga" id="lga" ></select>
+            <ul class="errorlist lga" style="list-style:none;padding-left:0;"></ul>
         </div>
         <div class="modal-footer">
             <button type="button" class="cancel" data-dismiss="modal">Close</button>
